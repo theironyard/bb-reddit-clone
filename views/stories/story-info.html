@@ -1,0 +1,14 @@
+<article>
+  <h1><a ui-sref="showstory({id: story.id})">{{ story.title }}</a></h1>
+  <h3>submitted {{ story.created_at | ago }} by {{ user.email }}</h3>
+  <h4>{{ comments.length || 0 }} comments</h4>
+
+  <div ng-if="showComments">
+    <comment-form story="story"></comment-form>
+    <ul>
+      <li ng-repeat="comment in comments">
+        <comment-info comment="comment"></comment-info>
+      </li>
+    </ul>
+  </div>
+</article>

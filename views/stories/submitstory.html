@@ -1,0 +1,16 @@
+<h1>SUBMISSION!</h1>
+
+<form name="submitstory" ng-submit="create()">
+  <label>Title:</label>
+  <input ng-model="storyTitle" placeholder="Something Descriptive" />
+
+  <h3>You can now choose to either enter a URL, or type text:</h3>
+
+  <label>URL:</label>
+  <input ng-model="storyUrl" placeholder="Link to the Story" /><br />
+
+  <label>Text:</label>
+  <textarea ng-model="storyText" placeholder="Link to the Story" />
+
+  <button type="submit">Submit Story</button>
+</form>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html charset="utf-8" ng-app="readingIt">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My First SKY UX App</title>
+    <link rel="stylesheet" href="https://sky.blackbaudcdn.net/skyux/1.5.1/css/sky-bundle.css">
+  </head>
+  <body ng-controller="SessionController as session">
+    <bb-navbar class="bb-navbar-showmobile">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a ui-sref="home">Home</a></li>
+          <li><a ui-sref="stories">Stories</a></li>
+          <li ng-show="session.isAuthenticated()"><a ui-sref="submitstory">Submit Story</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a ng-hide="session.isAuthenticated()">Not Logged In</a>
+            <user-info
+              ng-show="session.isAuthenticated()"
+              class="dropdown-toggle"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false">
+                <span class="caret"></span>
+            </user-info>
+            <ul class="dropdown-menu" role="menu">
+              <li><a ng-click="session.invalidate()">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </bb-navbar>
+
+    <div class="container">
+      <div ui-view></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="https://sky.blackbaudcdn.net/skyux/1.5.1/js/sky-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+
+    <script src="auth/auth.module.js"></script>
+    <script src="auth/auth.controllers.js"></script>
+
+    <script src="comments/comments.module.js"></script>
+    <script src="comments/comments.directives.js"></script>
+    <script src="comments/comments.factories.js"></script>
+
+    <script src="filters/filters.module.js"></script>
+    <script src="filters/ago.js"></script>
+
+    <script src="session/session.module.js"></script>
+    <script src="session/session.controllers.js"></script>
+    <script src="session/session.factories.js"></script>
+
+    <script src="stories/stories.module.js"></script>
+    <script src="stories/stories.controllers.js"></script>
+    <script src="stories/stories.directives.js"></script>
+    <script src="stories/stories.factories.js"></script>
+
+    <script src="users/users.module.js"></script>
+    <script src="users/users.directives.js"></script>
+    <script src="users/users.factories.js"></script>
+
+    <script src="app.js"></script>
+  </body>
+</html>
